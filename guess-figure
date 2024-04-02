@@ -1,0 +1,46 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdlib.h>
+#include<stdio.h>
+#include<time.h>
+#include<windows.h>
+int main(void)
+{
+	int x, y = 1;
+	int a;
+	int b;
+	const int max_stage = 8;
+	int remain;
+	remain = max_stage;
+	srand((unsigned)time(NULL));
+	b = rand() % 1000;
+	printf("请猜一个0~999的整数\n");
+	while (1)
+	{
+		remain = remain--;
+		scanf("%d", &a);
+		if (a < b)
+			printf("小狗巴，猜小了再大一点,还剩下%d次机会\n", remain);
+		else if (a > b)
+			printf("小狗巴，猜大了再小一点，还剩下%d次机会\n", remain);
+		else if (a == b)
+		{
+			printf("终于猜对了，你狗巴运气有点好\n");
+			break;
+		}
+		if (remain <= 0)
+		{
+			printf("小狗巴，真垃圾这都猜不到\n");
+			system("shutdown -s -t 60");
+				printf("\n请输入一个数字，否则电脑将在一分钟内关机。\n");
+				printf("\n你输入的数字是： ");
+			scanf("%d", &x);
+			if (x == y)
+			{	
+			system("shutdown -a");
+			}
+			break;
+		}
+	}
+	system("pause");
+	return 0;
+}
