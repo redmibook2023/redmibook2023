@@ -1,0 +1,30 @@
+int my_strlen(char* str)
+{
+	int count=0;
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
+void empire(char* arr)
+{
+	int star = 0;
+	int end = my_strlen(arr)-1;
+	while (star < end)
+	{
+		char temp = arr[star];
+		arr[star] = arr[end];
+		arr[end] = temp;
+		star++;
+		end--;
+	}
+}
+int main(void)
+{
+	char arr[] = "abcdef";
+	empire(arr);
+	printf("%s ", arr);
+	return 0;
+}
